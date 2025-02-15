@@ -1,0 +1,23 @@
+{
+    "name": "@saas/backend",
+    "version": "0.0.0",
+    "main": "src/index.ts",
+    "scripts": {
+        "dev": "tsx watch src/index.ts"
+    },
+    "dependencies": {
+        "@saas/auth": "workspace:*"
+    },
+    "devDependencies": {
+        "@saas/eslint-config": "workspace:*",
+        "@saas/prettier": "workspace:*",
+        "@saas/tsconfig": "workspace:*",
+        "tsx": "^4.19.2"
+    },
+    "prettier": "@saas/prettier",
+    "eslintConfig": {
+        "extends": [
+            "@saas/eslint-config/node"
+        ]
+    }
+}
