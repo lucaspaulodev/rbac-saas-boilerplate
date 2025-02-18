@@ -29,6 +29,9 @@ importers:
       '@saas/auth':
         specifier: workspace:*
         version: link:../../packages/auth
+      bcryptjs:
+        specifier: ^3.0.1
+        version: 3.0.1
       fastify:
         specifier: ^5.2.1
         version: 5.2.1
@@ -541,6 +544,10 @@ packages:
 
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
+
+  bcryptjs@3.0.1:
+    resolution: {integrity: sha512-iY+rRoR0bToRe8LTJkVX2gawo8gmgDQbiFsaKy8fVuG3WXekEQrjasfmWIbJxJHttEKPa+xPxbw3GROnJSmu0A==}
+    hasBin: true
 
   brace-expansion@1.1.11:
     resolution: {integrity: sha512-iCuPHDFgrHX7H2vEI/5xpz07zSHB00TpugqhmYtVmMO6518mCuRMoOYFldEBl0g187ufozdaHgWKcYFb61qGiA==}
@@ -2195,6 +2202,8 @@ snapshots:
   axobject-query@4.1.0: {}
 
   balanced-match@1.0.2: {}
+
+  bcryptjs@3.0.1: {}
 
   brace-expansion@1.1.11:
     dependencies:
