@@ -13,7 +13,10 @@ import {
 import { authenticateWithPassword } from './auth/authenticate-with-password'
 import { createAccount } from './auth/create-account'
 import { getProfile } from './auth/get-profile'
+import { requestPasswordRecover } from './auth/request-password-recover'
+import { resetPassword } from './auth/reset-password'
 import { errorHandler } from './error-handler'
+
 const app = fastify().withTypeProvider<ZodTypeProvider>()
 
 app.setSerializerCompiler(serializerCompiler)
@@ -45,5 +48,7 @@ app.register(fastifyJwt, {
 app.register(createAccount)
 app.register(authenticateWithPassword)
 app.register(getProfile)
+app.register(requestPasswordRecover)
+app.register(resetPassword)
 
 app.listen({ port: 3333 }).then(() => console.log('server is running!!'))
