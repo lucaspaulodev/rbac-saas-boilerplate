@@ -21,6 +21,7 @@ import { createOrganization } from './orgs/create-organization'
 import { getMembership } from './orgs/get-memebership'
 import { getOrganization } from './orgs/get-organization'
 import { getOrganizations } from './orgs/get-organizations'
+import { updateOrganization } from './orgs/update-organization'
 
 const app = fastify().withTypeProvider<ZodTypeProvider>()
 
@@ -68,6 +69,7 @@ app.register(createOrganization)
 app.register(getMembership)
 app.register(getOrganizations)
 app.register(getOrganization)
+app.register(updateOrganization)
 
 app
   .listen({ port: env.SERVER_PORT })
