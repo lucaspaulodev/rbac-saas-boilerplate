@@ -19,6 +19,8 @@ import { resetPassword } from './auth/reset-password'
 import { errorHandler } from './error-handler'
 import { createOrganization } from './orgs/create-organization'
 import { getMembership } from './orgs/get-memebership'
+import { getOrganization } from './orgs/get-organization'
+import { getOrganizations } from './orgs/get-organizations'
 
 const app = fastify().withTypeProvider<ZodTypeProvider>()
 
@@ -64,6 +66,8 @@ app.register(resetPassword)
 
 app.register(createOrganization)
 app.register(getMembership)
+app.register(getOrganizations)
+app.register(getOrganization)
 
 app
   .listen({ port: env.SERVER_PORT })
