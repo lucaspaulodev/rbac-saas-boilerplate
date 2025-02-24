@@ -32,12 +32,14 @@ export async function requestPasswordRecover(app: FastifyInstance) {
         return reply.status(201).send()
       }
 
-      await prisma.token.create({
+      const { id: tokenId } = await prisma.token.create({
         data: {
           type: 'PASSWORD_RECOVER',
           userId: userFromEmail.id,
         },
       })
+
+      console.log('Recover token', tokenId)
 
       return reply.status(201).send()
     },
