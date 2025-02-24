@@ -12,7 +12,7 @@ export async function authenticateWithGithub(app: FastifyInstance) {
     '/sessions/github',
     {
       schema: {
-        tags: ['auth'],
+        tags: ['Auth'],
         summary: 'Authentication with Github',
         body: z.object({
           code: z.string(),

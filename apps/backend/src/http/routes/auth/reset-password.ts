@@ -12,7 +12,7 @@ export async function resetPassword(app: FastifyInstance) {
     '/password/reset',
     {
       schema: {
-        tags: ['auth'],
+        tags: ['Auth'],
         summary: 'Reset password',
         body: z.object({
           token: z.string(),
