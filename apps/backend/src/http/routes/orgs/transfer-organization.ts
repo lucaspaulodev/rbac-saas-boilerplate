@@ -30,9 +30,6 @@ export async function transferOrganization(app: FastifyInstance) {
             201: z.object({
               organizationId: z.string().uuid(),
             }),
-            400: z.object({
-              message: z.string(),
-            }),
           },
         },
       },

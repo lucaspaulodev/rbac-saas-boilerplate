@@ -27,9 +27,6 @@ export async function deleteProject(app: FastifyInstance) {
           }),
           response: {
             204: z.null(),
-            400: z.object({
-              message: z.string(),
-            }),
           },
         },
       },

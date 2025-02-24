@@ -32,9 +32,6 @@ export async function createInvite(app: FastifyInstance) {
             201: z.object({
               inviteId: z.string().uuid(),
             }),
-            400: z.object({
-              message: z.string(),
-            }),
           },
         },
       },
@@ -52,7 +49,7 @@ export async function createInvite(app: FastifyInstance) {
 
         const { email, role } = request.body
 
-        const [_, domain] = email.split('@')
+        const [, domain] = email.split('@')
 
         if (
           organization.shouldAttachUsersByDomain &&
