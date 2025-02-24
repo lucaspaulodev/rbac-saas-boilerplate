@@ -11,6 +11,7 @@ import {
   ZodTypeProvider,
 } from 'fastify-type-provider-zod'
 
+import { authenticateWithGithub } from './auth/authenticate-with-github'
 import { authenticateWithPassword } from './auth/authenticate-with-password'
 import { createAccount } from './auth/create-account'
 import { getProfile } from './auth/get-profile'
@@ -64,6 +65,7 @@ app.register(fastifyJwt, {
 
 app.register(createAccount)
 app.register(authenticateWithPassword)
+app.register(authenticateWithGithub)
 app.register(getProfile)
 app.register(requestPasswordRecover)
 app.register(resetPassword)
