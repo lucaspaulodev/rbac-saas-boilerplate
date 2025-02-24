@@ -19,6 +19,8 @@ import { requestPasswordRecover } from './auth/request-password-recover'
 import { resetPassword } from './auth/reset-password'
 import { errorHandler } from './error-handler'
 import { getMembers } from './members/get-members'
+import { removeMember } from './members/remove-member'
+import { updateMember } from './members/update-member'
 import { createOrganization } from './orgs/create-organization'
 import { getMembership } from './orgs/get-membership'
 import { getOrganization } from './orgs/get-organization'
@@ -90,6 +92,8 @@ app.register(getProjects)
 app.register(updateProject)
 
 app.register(getMembers)
+app.register(updateMember)
+app.register(removeMember)
 
 app
   .listen({ port: env.SERVER_PORT })
