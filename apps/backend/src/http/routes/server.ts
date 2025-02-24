@@ -18,6 +18,7 @@ import { getProfile } from './auth/get-profile'
 import { requestPasswordRecover } from './auth/request-password-recover'
 import { resetPassword } from './auth/reset-password'
 import { errorHandler } from './error-handler'
+import { createInvite } from './invites/create-invite'
 import { getMembers } from './members/get-members'
 import { removeMember } from './members/remove-member'
 import { updateMember } from './members/update-member'
@@ -94,6 +95,8 @@ app.register(updateProject)
 app.register(getMembers)
 app.register(updateMember)
 app.register(removeMember)
+
+app.register(createInvite)
 
 app
   .listen({ port: env.SERVER_PORT })
