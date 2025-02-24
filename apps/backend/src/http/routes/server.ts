@@ -17,8 +17,15 @@ import { createAccount } from './auth/create-account'
 import { getProfile } from './auth/get-profile'
 import { requestPasswordRecover } from './auth/request-password-recover'
 import { resetPassword } from './auth/reset-password'
+import { getOrganizationBilling } from './billing/get-organization-billing'
 import { errorHandler } from './error-handler'
+import { acceptInvite } from './invites/accept-invite'
 import { createInvite } from './invites/create-invite'
+import { getInvite } from './invites/get-invite'
+import { getInvites } from './invites/get-invites'
+import { getPendingInvites } from './invites/get-pending-invites'
+import { rejectInvite } from './invites/reject-invite'
+import { revokeInvite } from './invites/revoke-invite'
 import { getMembers } from './members/get-members'
 import { removeMember } from './members/remove-member'
 import { updateMember } from './members/update-member'
@@ -97,6 +104,14 @@ app.register(updateMember)
 app.register(removeMember)
 
 app.register(createInvite)
+app.register(getInvites)
+app.register(getInvite)
+app.register(acceptInvite)
+app.register(rejectInvite)
+app.register(revokeInvite)
+app.register(getPendingInvites)
+
+app.register(getOrganizationBilling)
 
 app
   .listen({ port: env.SERVER_PORT })
