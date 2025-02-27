@@ -1,6 +1,7 @@
 'use server'
 
 import { HTTPError } from 'ky'
+import { cookies } from 'next/headers'
 import { z } from 'zod'
 
 import { signInWithPassword } from '@/http/sign-in-with-password'
@@ -14,6 +15,7 @@ const signInSchema = z.object({
 
 export async function signInWithEmailAndPassword(formData: FormData) {
   const result = signInSchema.safeParse(Object.fromEntries(formData))
+  const cookieStore = await cookies()
 
   if (!result.success) {
     const errors = result.error.flatten().fieldErrors
@@ -28,10 +30,10 @@ export async function signInWithEmailAndPassword(formData: FormData) {
       password,
     })
 
-    // Development only. Remove console.log before deploying
-    console.log(token)
-
-    return { success: true, message: null, errors: null }
+    cookieStore.set('token', token, {
+      maxAge: 60 * 60 * 24 * 7, // 7 days
+      path: '/',
+    })
   } catch (error) {
     if (error instanceof HTTPError) {
       const { message } = await error.response.json()
@@ -47,5 +49,11 @@ export async function signInWithEmailAndPassword(formData: FormData) {
       message: 'An unexpected error occurred',
       errors: null,
     }
+  }
+
+  return {
+    success: true,
+    message: null,
+    errors: null,
   }
 }
