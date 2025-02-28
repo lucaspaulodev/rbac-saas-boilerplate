@@ -1,8 +1,10 @@
+import { Separator } from '@radix-ui/react-separator'
 import { Slash } from 'lucide-react'
 
 import { ability } from '@/auth/auth'
 import { OrganizationSwitcher } from '@/components/organization-switcher'
 import { ProfileButton } from '@/components/profile-button'
+import { ThemeSwitcher } from '@/components/theme/theme-switcher'
 
 export async function Header() {
   const permissions = await ability()
@@ -15,6 +17,8 @@ export async function Header() {
         {permissions?.can('get', 'Project') && <p>Projects</p>}
       </div>
       <div className="flex items-center gap-4">
+        <ThemeSwitcher />
+        <Separator orientation="vertical" className="h-5" />
         <ProfileButton />
       </div>
     </header>
