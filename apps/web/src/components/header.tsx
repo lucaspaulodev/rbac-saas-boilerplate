@@ -6,6 +6,7 @@ import { OrganizationSwitcher } from '@/components/organization-switcher'
 import { ProfileButton } from '@/components/profile-button'
 import { ThemeSwitcher } from '@/components/theme/theme-switcher'
 
+import { ProjectSwitcher } from './project-switcher'
 import { Separator } from './ui/separator'
 
 export async function Header() {
@@ -17,7 +18,12 @@ export async function Header() {
           <h1 className="text-2xl font-bold">Logo</h1>
           <Slash className="size-3 -rotate-[30deg] text-border" />
           <OrganizationSwitcher />
-          {permissions?.can('get', 'Project') && <p>Projects</p>}
+          {permissions?.can('get', 'Project') && (
+            <>
+              <Slash className="size-3 -rotate-[30deg] text-border" />
+              <ProjectSwitcher />
+            </>
+          )}
         </div>
         <div className="flex items-center gap-4">
           <ThemeSwitcher />
